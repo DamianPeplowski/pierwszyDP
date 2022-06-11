@@ -22,24 +22,37 @@ plt.show()
 plt.savefig('line_plot.jpg', dpi=300)
 #zZad2
 
-data = pd.read_excel('mieszkania1.xlsx', sheet_name='DANE')
-df = pd.DataFrame(data)
-kolor=['r','y','b']
+df = pd.read_excel('mieszkania1.xlsx', sheet_name='DANE')
+#df = pd.DataFrame(data)
+#kolor=['r','y','b']
 
-wartosci=data['Rok']
-wysokosć=data['Wartość']
-mieszkania=data['Formy budownictwa']
-ind=data.loc[data['Formy budownictwa'] == 'indywidualne'].count()[0]
-spl=data.loc[data['Formy budownictwa'] == 'spółdzielcze'].count()[0]
-kom=data.loc[data['Formy budownictwa'] == 'komunalne'].count()[0]
+#wartosci=data['Rok']
+#wysokosć=data['Wartość']
+#mieszkania=data['Formy budownictwa']
+#x = data.groupby('Formy budownictwa').size()
+print(x)
+y1 = df.groupby('Formy budownictwa')['Rok'].value_counts()
+x = df.groupby('Formy budownictwa')['Wartość'].sum()
+print(y1)
+print( df.groupby('Formy budownictwa')['Wartość'].size())
+print( df.groupby('Formy budownictwa')['Wartość'].sum())
+print( df.groupby('Formy budownictwa')['Wartość'].min())
+print( df.groupby('Formy budownictwa')['Wartość'].max())
+print( df.groupby('Formy budownictwa')['Wartość'].mean())
+print( df.groupby('Formy budownictwa')['Wartość'].nunique())
+print( df.groupby('Formy budownictwa')['Wartość'].unique())
+
+#ind=data.loc[data['Formy budownictwa'] == 'indywidualne'].count()[0]
+#spl=data.loc[data['Formy budownictwa'] == 'spółdzielcze'].count()[0]
+#kom=data.loc[data['Formy budownictwa'] == 'komunalne'].count()[0]
 #seria = df.groupby('Formy budownictwa')['Formy budownictwa'].size()
-plt.text(-1.2, 1.1, 'NrIndeksu', fontsize=10, color='green')
-plt.bar(data.Rok,data.Wartość,color=kolor)
-plt.bar(data.Rok,ind,color='b')
-plt.bar(data.Rok,spl,color='y')
-plt.bar(data.Rok,kom,color='g')
-plt.show()
+#plt.text(-1.2, 1.1, 'NrIndeksu', fontsize=10, color='green')
+#plt.bar(data.Rok,data.Wartość,color=kolor)
+#plt.bar(data.Rok,ind,color='b')
+#plt.bar(data.Rok,spl,color='y')
+#plt.bar(data.Rok,kom,color='g')
+#plt.show()
 #zad3
-data1 = pd.read_excel('turystyka1.xlsx', sheet_name='TABLICA')
-df1 = pd.DataFrame(data1)
-print(df1)
+#data1 = pd.read_excel('turystyka1.xlsx', sheet_name='TABLICA')
+#df1 = pd.DataFrame(data1)
+#print(df1)
